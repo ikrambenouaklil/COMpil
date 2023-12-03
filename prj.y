@@ -4,13 +4,13 @@
 %token const_lex aff pvg idf nbre  nbrr  float_lex  int_lex bool_lex false_lex true_lex 
 %%
 S:H       { printf("syntaxe correct");};
-H:C V|V
-C:const_lex TC  idf  aff NC pvg C  | const_lex TC aff NC pvg
-V: TV idf aff NV pvg
+H:C V |V
+C:const_lex TC  idf  aff VC pvg C  | const_lex TC idf aff VC pvg
+V: TV idf aff VV pvg V |  TV idf aff VV pvg
 TC: int_lex | float_lex
 TV: int_lex| float_lex|bool_lex
-NC:nbre |nbrr
-NV:nbre|nbrr|BV
+VC:nbre |nbrr
+VV:nbre|nbrr|BV
 BV:false_lex |true_lex 
 %%
 main ()
