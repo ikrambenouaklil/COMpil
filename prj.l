@@ -32,4 +32,4 @@ TRUE     { nb_colonne++; return true_lex; };
 {varint_lex}  { nb_colonne ++; return varint; };
 {varfloat_lex}  { nb_colonne ++; return varfloat; };
 \n nb_ligne++;
-. printf("erreur lexical dans la ligne %d\n",nb_ligne);
+. printf("erreur lexical dans la ligne %d et la colonne %d\n",nb_ligne,nb_colonne);
