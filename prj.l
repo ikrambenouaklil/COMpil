@@ -19,7 +19,7 @@ varfloat_lex [+-]?[0-9]+\.[0-9]+
 ==     { nb_colonne ++; return eq_lex;} ;
 <>      { nb_colonne ++; return noteq_lex;} ;
 CONST    { nb_colonne ++; return const_lex; };
-=       { nb_colonne ++; return aff; };
+:=       { nb_colonne ++; return aff; };
 ;        { nb_colonne++; return pvg; };
 INT      { nb_colonne++; return int_lex; };
 FLOAT    { nb_colonne++; return float_lex; };
