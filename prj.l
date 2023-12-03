@@ -6,10 +6,9 @@ main(){int nb_ligne = 1, nb_colonne = 1;}
 %}
 
 idf_lex [A-Z]"_"?[a-zA-Z0-9]*
-conste_lex "-"?[0-9]+
-constr_lex "-"?[0-9]+\.[0-9]+
-varint_lex "-"?[0-9]+
-varfloat_lex "-"?[0-9]+\.[0-9]+
+nbre_lex "-"?[0-9]+
+nbrr_lex "-"?[0-9]+\.[0-9]+
+
 
 %%
 CONST    { nb_colonne ++; return const_lex; };
@@ -21,10 +20,9 @@ BOOL     { nb_colonne++; return bool_lex; };
 FALSE    { nb_colonne++; return false_lex; };
 TRUE     { nb_colonne++; return true_lex; };
 {idf_lex} { nb_colonne ++; return idf; };
-{conste_lex}  { nb_colonne ++; return conste; };
-{constr_lex}  { nb_colonne ++; return constr; };
-{varint_lex}  { nb_colonne ++; return varint; };
-{varfloat_lex}  { nb_colonne ++; return varfloat; };
+{nbre_lex}  { nb_colonne ++; return nbre; };
+{nbrr_lex}  { nb_colonne ++; return nbrr; };
+
 >      { nb_colonne ++; return  bigger_lex;}; 
 >=     { nb_colonne ++; return  biggereq_lex;}; 
 <      { nb_colonne ++; return less_lex;};
