@@ -12,7 +12,12 @@ varint_lex [+-]?[0-9]+
 varfloat_lex [+-]?[0-9]+\.[0-9]+
 
 %%
-
+>      { nb_colonne ++; return  bigger_lex;}; 
+>=     { nb_colonne ++; return  biggereq_lex;}; 
+<      { nb_colonne ++; return less_lex;};
+<=     { nb_colonne ++; return lessreq_lex;}; 
+==     { nb_colonne ++; return eq_lex;} ;
+<>      { nb_colonne ++; return noteq_lex;} ;
 CONST    { nb_colonne ++; return const_lex; };
 =       { nb_colonne ++; return aff; };
 ;        { nb_colonne++; return pvg; };
