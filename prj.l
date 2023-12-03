@@ -31,5 +31,5 @@ TRUE     { nb_colonne++; return true_lex; };
 <=     { nb_colonne ++; return lessreq_lex;}; 
 ==     { nb_colonne ++; return eq_lex;} ;
 <>      { nb_colonne ++; return noteq_lex;} ;
-\n nb_ligne++;
+\n { nb_colonne=1;nb_ligne++;};
 . printf("erreur lexical dans la ligne %d et la colonne %d\n",nb_ligne,nb_colonne);
