@@ -67,9 +67,14 @@
 
 /* Copy the first part of user declarations.  */
 
+/* Line 189 of yacc.c  */
+#line 1 "prj.y"
+
+#include <stdio.h>
+
 
 /* Line 189 of yacc.c  */
-#line 73 "prj.tab.c"
+#line 78 "prj.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -124,7 +129,7 @@ typedef int YYSTYPE;
 
 
 /* Line 264 of yacc.c  */
-#line 128 "prj.tab.c"
+#line 133 "prj.tab.c"
 
 #ifdef short
 # undef short
@@ -414,9 +419,9 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,     5,     5,     7,     7,     8,     8,     9,     9,    10,
-      10,    11,    11,    11,    12,    12,    13,    13,    13,    14,
-      14
+       0,     7,     7,     9,     9,    10,    10,    11,    11,    12,
+      12,    13,    13,    13,    14,    14,    15,    15,    15,    16,
+      16
 };
 #endif
 
@@ -1331,14 +1336,14 @@ yyreduce:
         case 2:
 
 /* Line 1455 of yacc.c  */
-#line 5 "prj.y"
+#line 7 "prj.y"
     {printf("syntaxe correct"); YYACCEPT; ;}
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 1342 "prj.tab.c"
+#line 1347 "prj.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1550,7 +1555,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 15 "prj.y"
+#line 17 "prj.y"
  
 int main() 
 { yyparse();} 
