@@ -8,9 +8,9 @@ idf_lex [A-Z]"_"?[a-zA-Z0-9]*
 nbre_lex "-"?[0-9]+
 nbrr_lex "-"?[0-9]+\.[0-9]+
 %%
-CONST      return const_lex; 
-":="       return aff;
-";"        return pvg; 
+CONST      {return const_lex; }
+":="        {return aff;}
+";"        {nb_colonne++; return pvg;} 
 INT      return int_lex; ;
 FLOAT      return float_lex; 
 BOOL       return bool_lex; 
