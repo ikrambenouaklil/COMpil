@@ -32,5 +32,6 @@ TRUE     { nb_colonne++; return true_lex; };
 "-"    { nb_colonne ++; return minus;} ;
 "*"    { nb_colonne ++; return mult;} ;
 "/"    { nb_colonne ++; return div;} ;
+","    { nb_colonne ++; return vergule;} ;
 \n { nb_colonne=1;nb_ligne++;};
 . printf("erreur lexical dans la ligne %d et la colonne %d\n",nb_ligne,nb_colonne);
