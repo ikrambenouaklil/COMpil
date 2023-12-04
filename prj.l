@@ -1,7 +1,10 @@
 %{
+#include "prj.tab.h" 
 #include <stdio.h>
-#include "prj.tab.h"
-main(){int nb_ligne = 1, nb_colonne = 1;}
+
+int nb_ligne = 1;
+int nb_colonne = 1;
+
 
 %}
 
@@ -22,16 +25,7 @@ TRUE     { nb_colonne++; return true_lex; };
 {idf_lex} { nb_colonne ++; return idf; };
 {nbre_lex}  { nb_colonne ++; return nbre; };
 {nbrr_lex}  { nb_colonne ++; return nbrr; };
-">"      { nb_colonne ++; return  bigger_lex;}; 
-">="     { nb_colonne ++; return  biggereq_lex;}; 
-"<"      { nb_colonne ++; return less_lex;};
-"<="     { nb_colonne ++; return lessreq_lex;}; 
-"=="     { nb_colonne ++; return eq_lex;} ;
-"<>"      { nb_colonne ++; return noteq_lex;} ;
-"+"    { nb_colonne ++; return add;} ;
-"-"    { nb_colonne ++; return minus;} ;
-"*"    { nb_colonne ++; return mult;} ;
-"/"    { nb_colonne ++; return div;} ;
-","    { nb_colonne ++; return vergule;} ;
+
+
 \n { nb_colonne=1;nb_ligne++;};
-. printf("erreur lexical dans la ligne %d et la colonne %d\n",nb_ligne,nb_colonne);
+.  { printf("erreur lexical dans la ligne %d et la colonne %d\n",nb_ligne,nb_colonne);;}
