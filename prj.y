@@ -2,6 +2,7 @@
 #include <stdio.h>
 %} 
 %token const_lex aff pvg idf nbre  nbrr  float_lex  int_lex bool_lex false_lex true_lex  
+%start S
 %% 
 S:H      {printf("syntaxe correct"); YYACCEPT; }; 
 H:C V |V 
