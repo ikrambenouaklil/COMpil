@@ -1,11 +1,13 @@
 %{
+   extern int yylex(void);
+ void yyerror(const char *s);
 int nb_ligne = 1
 %}
-%token const_lex aff pvg idf conste  constr varint varfloat  float_lex  int_lex bool_lex false_lex true_lex begin-lex end-lex err  add minus mult div vg
+%token const_lex aff pvg idf conste  constr varint varfloat  float_lex  int_lex bool_lex false_lex true_lex begin_lex end_lex err  add minus mult div vg
 
 %%
-S:H  begin-lex  INST end-lex      printf("syntaxe correct");
-  YYACCEPT;
+S:H  begin_lex  INST end_lex      {printf("syntaxe correct");
+  YYACCEPT;}
 
 H:C V|V
 C:const_lex TC  idf  aff NC pvg C  | const_lex TC aff NC pvg
@@ -25,12 +27,12 @@ AFF:OPT INST | OPT
 OPT: idf  aff GP pvg | idf aff NV
 GP: idf OPART GP|idf
 OPRAT: add | minus | mult | div
-FORINS:
-IF: 
-OPT:
+
 %%
 main ()
-{ yyparse(); }
-
+{
+   yyparse(); 
+}
 yywrap ()
 {}
+
