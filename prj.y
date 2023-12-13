@@ -24,9 +24,11 @@ INST: BOUCLE|COND|AFF
 BOUCLE:FOR INST|FOR
 COND:IF INST |IF
 AFF:OPT INST | OPT
-OPT: idf  aff GP pvg | idf aff NV
+OPT: idf  aff GP pvg | idf aff NV pvg
 GP: idf OPART GP|idf
-OPRAT: add | minus | mult | div
+OPRAT: add | minus | mult | div 
+IF:
+
 
 %%
 main ()
