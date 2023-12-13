@@ -21,9 +21,9 @@ END return end-lex ;
   "-" return minus;
   "*" return mult;
  "/" return div;
-{idf_lex}  {return idf; };
+{idf_lex}  {  if (yyleng <=10) printf("erreur lexical \n ce identifiant tres long") return idf; };
 {nbre_lex}   {return nbre;}; 
 {nbrr_lex}   {return nbrr; };
 [  \t]  
 [\n]  {nb_ligne++;};
-.   {printf("erreur lexical dans la ligne %d \n",nb_ligne) return err;}
+.   {printf("erreur lexical dans la ligne %d \n dans l'entitè %s",nb_ligne , yytext) return err;}
