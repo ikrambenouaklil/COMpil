@@ -3,6 +3,10 @@
  void yyerror(const char *s);
 int nb_ligne = 1
 %}
+%union {
+int entier;
+
+
 %token const_lex aff pvg idf nbrr nbre  float_lex  int_lex bool_lex false_lex true_lex begin_lex end_lex err  add minus mult div vg equal acolovr 
 acolfermt parovt parfrt cndtinst elseinst bigger_lex biggereq_lex less_lex  lessreq_lex noeql_lex bocleinst
 
