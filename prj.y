@@ -4,8 +4,12 @@
 int nb_ligne = 1
 %}
 %union {
-int entier;
-
+INT     entier;
+FLOAT      reel;
+BOOL       bool; 
+FALSE      faux;
+TRUE       vrai; 
+}
 
 
 %token const_lex aff pvg idf nbrr nbre  float_lex  int_lex bool_lex false_lex true_lex begin_lex end_lex err  add minus mult div vg equal acolovr 
