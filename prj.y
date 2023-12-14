@@ -4,6 +4,7 @@
 int nb_ligne = 1
 %}
 %token const_lex aff pvg idf conste  constr varint varfloat  float_lex  int_lex bool_lex false_lex true_lex begin_lex end_lex err  add minus mult div vg
+equal acolovr acolfermt parovt parfrt cndtinst elseinst bigger_lex biggereq_lex less_lex  lessreq_lex noeql_lex
 
 %%
 S:H  begin_lex  INST end_lex      {printf("syntaxe correct");
