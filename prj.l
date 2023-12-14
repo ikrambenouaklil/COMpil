@@ -5,6 +5,7 @@ extern  nb_ligne ;
 idf_lex [A-Z]"_"?[a-zA-Z0-9]*
 nbre_lex "-"?[0-9]+
 nbrr_lex "-"?[0-9]+\.[0-9]+
+comment  "\{[^}]\}"
 %%
 CONST      {return const_lex; }
 :=        {return aff;}
@@ -37,6 +38,7 @@ For return bocleinst;
 {idf_lex}  {  if (yyleng>10)  printf("erreur lexical \n ce identificateur est tres long")  return idf };
 {nbre_lex}   {return nbre;}; 
 {nbrr_lex}   {return nbrr; };
-[  \t]  
+[  \t]
+comment
 [\n]  {nb_ligne++;};
 .   {printf("erreur lexical dans la ligne %d \n dans l'entitè %s",nb_ligne , yytext) return err;}
