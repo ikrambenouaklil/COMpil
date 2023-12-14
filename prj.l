@@ -26,7 +26,7 @@ END return end_lex ;
  "}" return acolfermt;
  "(" return parovt;
   ")" return parfrt;
-  If return conditioninst;
+  If return cndtinst;
   else return elseinst;
   > return bigger_lex ;
    >= return biggereq_lex;
