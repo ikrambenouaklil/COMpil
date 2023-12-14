@@ -48,6 +48,7 @@ OPTE: idf OPRAT NC
 %%
 main ()
 { yyparse(); }
+Afficher();
 yywrap () {}
  yyerror(char*msg);{
 printf("erreur syntaxique à la ligne %d\n",nb_ligne);
