@@ -1,7 +1,6 @@
 %{
-   extern int yylex(void);
- void yyerror(const char *s);
-int nb_ligne = 1
+ extern int yylex(void);
+ int nb_ligne = 1
 %}
 %union {
 INT     entier;
@@ -17,8 +16,7 @@ acolfermt parovt parfrt cndtinst elseinst bigger_lex biggereq_lex less_lex  less
 
 
 %%
-S:H  begin_lex  INST end_lex      {printf("syntaxe correct");
-  YYACCEPT;}
+S:H  begin_lex  INST end_lex      {printf("syntaxe correct"); YYACCEPT;}
 
 H:C V|V
 C:const_lex TC  idf  aff NC pvg C  | const_lex TC aff NC pvg
@@ -52,9 +50,9 @@ OPTE: idf OPRAT NC
 
 %%
 main ()
-{
-   yyparse(); 
+{ yyparse(); }
+yywrap () {}
+ yyerror(char*msg);{
+printf("erreur syntaxique à la ligne %d\n",nb_ligne);
 }
-yywrap ()
-{}
 
