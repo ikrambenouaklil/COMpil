@@ -3,7 +3,7 @@
  void yyerror(const char *s);
 int nb_ligne = 1
 %}
-%token const_lex aff pvg idf conste  constr varint varfloat  float_lex  int_lex bool_lex false_lex true_lex begin_lex end_lex err  add minus mult div vg
+%token const_lex aff pvg idf nbrr nbre  float_lex  int_lex bool_lex false_lex true_lex begin_lex end_lex err  add minus mult div vg
 equal acolovr acolfermt parovt parfrt cndtinst elseinst bigger_lex biggereq_lex less_lex  lessreq_lex noeql_lex
 
 %%
@@ -18,8 +18,8 @@ DCLRV: TV IDF pvg V|TV IDF pvg
 IDF: idf vg IDF | idf
 TC: int_lex | float_lex
 TV: int_lex| float_lex|bool_lex
-NC:conste |constr
-NV:varfloat|varint|BV
+NC:nbre |nbrr
+NV:nbrr|nbre|BV
 BV:false_lex |true_lex 
 INST: BOUCLE|COND|AFF 
 BOUCLE:FOR INST|FOR
@@ -30,7 +30,8 @@ GP: idf OPART GP|idf
 OPRAT: add | minus | mult | div 
 IF: cndtinst CONDT acolovr INST acolfermt
 CONDT: parovt  OPTL  parfrt 
-OPTL: idf OPRL idf |  idf OPRL 
+OPTL: idf OPRL idf |  idf OPRL NV
+OPRL:
 
 
 %%
