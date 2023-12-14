@@ -8,8 +8,8 @@ nbre_lex "-"?[0-9]+
 nbrr_lex "-"?[0-9]+\.[0-9]+
 comment  "\{[^}]\}"
 %%
-CONST      {return const_lex; }
-:=        {return aff;}
+CONST   {yylval.entier=atoi(yytext);return const_lex; }
+:=       {return aff;}
 ;       {return pvg;} 
 ","       return vg;
 INT      { yylval.str=strdup(yytext);return int_lex;} ;
@@ -42,4 +42,5 @@ For return bocleinst;
 [  \t]
 comment
 [\n]  {nb_ligne++;};
+[+;] {return yytext[0];}
 .   {printf("erreur lexical dans la ligne %d \n dans l'entitè %s",nb_ligne , yytext) return err;}
