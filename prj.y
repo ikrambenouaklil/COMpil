@@ -1,7 +1,8 @@
 %{
 #include <stdio.h>
 #include <stdbool.h>
- extern int yylex(void);
+extern int yylex(void);
+void yyerror(const char *s);
  int nb_ligne = 1;
 %}
 %union {
