@@ -2,6 +2,16 @@
 #include "prj.tab.h" 
 extern  nb_ligne ;
 extern YYSTYPE yylval;
+
+//structure de la table de symbole
+typedef struct
+{
+char NomEntite[20];
+char CodeEntite[20];
+Char TypeEntite[20];
+} TypeTS;
+
+
 %}
 idf_lex [A-Z]"_"?[a-zA-Z0-9]*
 nbre_lex "-"?[0-9]+
