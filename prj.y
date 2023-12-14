@@ -6,8 +6,6 @@
 INT     entier;
 FLOAT      reel;
 BOOL       bool; 
-FALSE      faux;
-TRUE       vrai; 
 }
 
 
