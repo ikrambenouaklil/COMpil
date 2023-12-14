@@ -12,9 +12,9 @@ CONST      {return const_lex; }
 :=        {return aff;}
 ;       {return pvg;} 
 ","       return vg;
-INT     { return int_lex;} ;
-FLOAT      {return float_lex;};
-BOOL       {return bool_lex;}; 
+INT      { yylval.str=strdup(yytext);return int_lex;} ;
+FLOAT    {yylval.str=strdup(yytext);return float_lex;};
+BOOL     {yylval.str=strdup(yytext);return bool_lex;};
 FALSE      {return false_lex;}; 
 TRUE       {return true_lex;}; 
 BEGIN return begin_lex ;
