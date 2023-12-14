@@ -21,8 +21,7 @@ END return end_lex ;
   "-" return minus;
   "*" return mult;
  "/" return div;
-{idf_lex}  {  if (yyleng <=10) printf ("idf");
- else printf("erreur lexical \n ce identificateur est tres long")  };
+{idf_lex}  {  if (yyleng>10)  printf("erreur lexical \n ce identificateur est tres long")  return idf };
 {nbre_lex}   {return nbre;}; 
 {nbrr_lex}   {return nbrr; };
 [  \t]  
