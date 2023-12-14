@@ -31,7 +31,7 @@ BOUCLE:FOR INST|FOR
 COND:IF INST |IF
 AFF:OPT INST | OPT
 OPT: idf  aff GP pvg | idf aff NV pvg
-GP: idf OPART GP|idf
+GP: idf OPRAT GP|idf
 OPRAT: add | minus | mult | div 
 IF: cndtinst CONDT acolovr INST acolfermt
 CONDT: parovt  OPTL  parfrt 
