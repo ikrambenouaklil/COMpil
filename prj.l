@@ -46,8 +46,10 @@ END return end_lex ;
    "<=" return lessreq_lex;
    "<>" return noeql_lex;
 For return bocleinst;
-{idf_lex}  {  if (yyleng>10)  printf("erreur lexical \n ce identificateur est tres long");
-yylval.str=strdup(yytext); inserer(yytext,"idf");return idf };
+{idf_lex}  {  if (yylang<=10) {inserer(yytext,"idf");
+                                return idf;  }
+             else printf("erreur lexical a la ligne %d\n ce identificateur est tres long");
+            };
 {nbre_lex}   {return nbre;}; 
 {nbrr_lex}   {return nbrr; };
 [  \t]
