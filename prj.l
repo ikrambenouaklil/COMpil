@@ -96,7 +96,7 @@ END return end_lex ;
 For return bocleinst;
 {idf_lex}  {  if (yylang<=10) {inserer(yytext,"idf");
                                 return idf;  }
-             else printf("erreur lexical a la ligne %d\n ce identificateur est tres long");
+             else printf("erreur lexical a la ligne %d\n ce identificateur est tres long",nb_ligne);
             };
 {nbre_lex}   {return nbre;}; 
 {nbrr_lex}   {return nbrr; };
