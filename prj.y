@@ -28,7 +28,9 @@ AFF:OPT INST | OPT
 OPT: idf  aff GP pvg | idf aff NV pvg
 GP: idf OPART GP|idf
 OPRAT: add | minus | mult | div 
-IF:
+IF: cndtinst CONDT acolovr INST acolfermt
+CONDT: parovt  OPTL  parfrt 
+OPTL: idf OPRL idf |  idf OPRL 
 
 
 %%
