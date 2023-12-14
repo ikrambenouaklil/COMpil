@@ -1,6 +1,7 @@
 %{
 #include "prj.tab.h" 
 extern  nb_ligne ;
+extern YYSTYPE yylval;
 %}
 idf_lex [A-Z]"_"?[a-zA-Z0-9]*
 nbre_lex "-"?[0-9]+
