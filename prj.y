@@ -31,8 +31,8 @@ OPRAT: add | minus | mult | div
 IF: cndtinst CONDT acolovr INST acolfermt
 CONDT: parovt  OPTL  parfrt 
 OPTL: idf OPRL idf |  idf OPRL NV
-OPRL:
-
+OPRL:  bigger_lex | biggereq_lex | less_lex | lessreq_lex | noeql_lex
+FOR: 
 
 %%
 main ()
