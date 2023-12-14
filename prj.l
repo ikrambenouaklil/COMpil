@@ -104,4 +104,4 @@ For return bocleinst;
 comment
 [\n]  {nb_ligne++;};
 [+;] {return yytext[0];}
-.   {printf("erreur lexical dans la ligne %d \n dans l'entitè %s",nb_ligne , yytext) return err;}
+.   {printf("erreur lexical dans la ligne %d \n dans l'entite %s",nb_ligne , yytext) return err;}
