@@ -1,14 +1,17 @@
 %{
+#include <stdio.h>
+#include <stdbool.h>
  extern int yylex(void);
  int nb_ligne = 1;
 %}
 %union {
-INT     entier;
-FLOAT      reel;
-BOOL       bool; 
+int      entier;
+float    reel;
+bool    boolean; 
+char*    str;
 }
 
-%token const_lex aff pvg idf nbrr nbre  float_lex  int_lex bool_lex false_lex true_lex begin_lex end_lex err  add minus mult div vg equal acolovr 
+%token <entier>const_lex aff pvg idf nbrr nbre  <str>float_lex  <str>int_lex <str>bool_lex false_lex true_lex begin_lex end_lex err  add minus mult div vg equal acolovr 
 acolfermt parovt parfrt cndtinst elseinst bigger_lex biggereq_lex less_lex  lessreq_lex noeql_lex bocleinst
 
 
@@ -46,11 +49,10 @@ OPTE: idf OPRAT NC
 
 
 %%
-main ()
-{ yyparse(); 
-afficher();  }
-yywrap () {}
- yyerror(char*msg);{
+int main ()
+{ int yyparse(); 
+int afficher();  }
+int yywrap () {}
+ int yyerror(char*msg);{
 printf("erreur syntaxique à la ligne %d\n",nb_ligne);
 }
-
