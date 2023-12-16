@@ -1707,11 +1707,15 @@ yyreturn:
 /* Line 1675 of yacc.c  */
 #line 85 "prj.y"
 
-int main ()
-{ int yyparse(); 
-int afficher();  }
-int yywrap () {};
+ main ()
+void afficher();
+
+ 
  void yyerror(char*msg) {
-printf("erreur syntaxique à la ligne %d\n",nb_ligne);
-}
+printf("erreur syntaxique à la ligne %d\n",nb_ligne);}
+
+{ int yyparse(); 
+  }
+  yywrap () {};
+
 

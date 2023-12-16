@@ -834,7 +834,7 @@ nb_ligne++;
 case 34:
 YY_RULE_SETUP
 #line 50 "prj.l"
-printf("erreur lexical dans la ligne %d \n ",nb_ligne ); 
+printf("erreur lexical dans la ligne %d \n dans l'entite %s",nb_ligne , yytext); 
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
