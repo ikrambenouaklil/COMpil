@@ -18,14 +18,12 @@ float    reel;
 char*    str;
 }
 
-%token <entier>const_lex aff pvg <str>idf nbrr nbre  <str>float_lex  <str>int_lex <str>bool_lex false_lex true_lex begin_lex end_lex err  add minus mult divi vg equal acolovr 
+%token <entier>const_lex aff pvg <str>idf nbrr nbre  <str>float_lex  <str>int_lex <str>bool_lex false_lex true_lex begin_lex end_lex   add minus mult divi vg equal acolovr 
 acolfermt parovt parfrt cndtinst elseinst bigger_lex biggereq_lex less_lex  lessreq_lex noeql_lex bocleinst
-
-
+%start S
 %%
 S:H  begin_lex  INST end_lex      {printf("syntaxe correct");  YYACCEPT;} 
 ;
-
 H:C V|V 
 ;
 C:const_lex TC  idf  aff NC pvg C  | const_lex TC aff NC pvg
@@ -36,8 +34,7 @@ INITV: TV IDF aff NV pvg  V|TV IDF aff NV pvg
 ;
 DCLRV: TV IDF pvg V|TV IDF pvg
 ;
-IDF: idf vg IDF {inserertype($1,sauvtype);}
-| idf  {inserertype($1,sauvtype);}
+IDF: idf vg IDF {inserertype($1,sauvtype);}| idf  {inserertype($1,sauvtype);}
 ;
 TC: int_lex | float_lex
 ;
