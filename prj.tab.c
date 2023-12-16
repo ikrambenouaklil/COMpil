@@ -1458,7 +1458,7 @@ yyreduce:
 
 /* Line 1455 of yacc.c  */
 #line 29 "prj.y"
-    {printf("syntaxe correct"); YYACCEPT;;}
+    {printf("syntaxe correct");  YYACCEPT;;}
     break;
 
   case 13:

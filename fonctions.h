@@ -1,4 +1,6 @@
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 //je vais commencer ma table de symbole
 typedef struct
@@ -30,7 +32,7 @@ return -1;
 //definir une fonction d'insertion
 
 void inserer(char entite[], char code[])
-{
+{  
 if ( recherche(entite)==-1)
 {
 strcpy(ts[CpTabSym].NomEntite,entite);

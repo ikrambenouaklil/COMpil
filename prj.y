@@ -26,7 +26,7 @@ acolfermt parovt parfrt cndtinst elseinst bigger_lex biggereq_lex less_lex  less
 
 
 %%
-S:H  begin_lex  INST end_lex      {printf("syntaxe correct"); YYACCEPT;}
+S:H  begin_lex  INST end_lex      {printf("syntaxe correct");  YYACCEPT;}
 
 H:C V|V
 C:const_lex TC  idf  aff NC pvg C  | const_lex TC aff NC pvg
