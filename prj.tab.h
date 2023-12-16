@@ -43,20 +43,56 @@
      aff = 259,
      pvg = 260,
      idf = 261,
-     nbre = 262,
-     nbrr = 263,
+     nbrr = 262,
+     nbre = 263,
      float_lex = 264,
      int_lex = 265,
      bool_lex = 266,
      false_lex = 267,
-     true_lex = 268
+     true_lex = 268,
+     begin_lex = 269,
+     end_lex = 270,
+     err = 271,
+     add = 272,
+     minus = 273,
+     mult = 274,
+     div = 275,
+     vg = 276,
+     equal = 277,
+     acolovr = 278,
+     acolfermt = 279,
+     parovt = 280,
+     parfrt = 281,
+     cndtinst = 282,
+     elseinst = 283,
+     bigger_lex = 284,
+     biggereq_lex = 285,
+     less_lex = 286,
+     lessreq_lex = 287,
+     noeql_lex = 288,
+     bocleinst = 289
    };
 #endif
 
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+typedef union YYSTYPE
+{
+
+/* Line 1676 of yacc.c  */
+#line 11 "prj.y"
+
+int      entier;
+float    reel;
+bool    boolean; 
+char*    str;
+
+
+
+/* Line 1676 of yacc.c  */
+#line 95 "prj.tab.h"
+} YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
