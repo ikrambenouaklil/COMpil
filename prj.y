@@ -1,14 +1,11 @@
 %{
 #include "prj.tab.h"
 #include <string.h>
+#include <wchar.h>
 #include <stdbool.h>
-<<<<<<< Updated upstream
 #include <stdio.h>
-#include <stdlib.h>
-=======
-#include <cstdbool>
 
->>>>>>> Stashed changes
+
 
 extern int yylex(void);
 extern void yyerror(char*msg);

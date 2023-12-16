@@ -427,80 +427,9 @@ char *yytext;
 #include <stdbool.h>
 extern  int nb_ligne ;
 extern YYSTYPE yylval;
+#include "fonctions.h"
 
-//je vais commencer ma table de symbole
-typedef struct
-{
-char NomEntite[20];
-char CodeEntite[20];
-char TypeEntite[20];
-} TypeTS;
-
-//initiation d'un tab qui contient les elements de ma table
-
-TypeTS ts[100];
-//compteur global pour ma table
-int CpTabSym=0;
- 
-//definir une fonction de recherche 
-int recherche(char entite[])
-{
-int i=0;
-while(i<CpTabSym)
-{
-if (strcmp(entite,ts[i].NomEntite)==0) return i;
-i++;
-}
-
-return -1;
-}
-
-//definir une fonction d'insertion
-
-void inserer(char entite[], char code[])
-{
-if ( recherche(entite)==-1)
-{
-strcpy(ts[CpTabSym].NomEntite,entite);
-strcpy(ts[CpTabSym].CodeEntite,code);
-CpTabSym++;
-}
-}
-
-//definir la fonction afficher
-
-void afficher ()
-{
-printf("\n/***************Table des symboles ******************/\n");
-printf("________________________\n");
-printf("\t| NomEntite | CodeEntite |TypeEntite \n");
-printf("________________________\n");
-int i=0;
-while(i<CpTabSym)
-{
-printf("\t|%10s |%12s |%12s \n",ts[i].NomEntite,ts[i].CodeEntite,ts[i].TypeEntite);
-i++;
-}
-}
-
-//fonction pour inserer le type
-
-void inserertype(char entite[], char type[])
-{
-int pos;
- pos=recherche(entite)
-if (pos!=-1)
-
-strcpy(ts[pos].TypeEntite,type);
-
-}
-
-
-
-
-
-
-#line 504 "lex.yy.c"
+#line 433 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -651,9 +580,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 84 "prj.l"
+#line 13 "prj.l"
 
-#line 657 "lex.yy.c"
+#line 586 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -738,188 +667,189 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 85 "prj.l"
+#line 14 "prj.l"
 {yylval.entier=atoi(yytext);return const_lex; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 86 "prj.l"
+#line 15 "prj.l"
 {return aff;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 87 "prj.l"
+#line 16 "prj.l"
 {return pvg;} 
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 88 "prj.l"
+#line 17 "prj.l"
 return vg;
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 89 "prj.l"
+#line 18 "prj.l"
 { yylval.str=strdup("Entier");return int_lex;} ;
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 90 "prj.l"
+#line 19 "prj.l"
 {yylval.str=strdup("Reel");return float_lex;};
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 91 "prj.l"
+#line 20 "prj.l"
 {yylval.str=strdup("Boolean");return bool_lex;};
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 92 "prj.l"
+#line 21 "prj.l"
 {return false_lex;}; 
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 93 "prj.l"
+#line 22 "prj.l"
 {return true_lex;}; 
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 94 "prj.l"
+#line 23 "prj.l"
 return begin_lex ;
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 95 "prj.l"
+#line 24 "prj.l"
 return end_lex ;
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 96 "prj.l"
+#line 25 "prj.l"
 return add;
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 97 "prj.l"
+#line 26 "prj.l"
 return minus;
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 98 "prj.l"
+#line 27 "prj.l"
 return mult;
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 99 "prj.l"
-return div;
+#line 28 "prj.l"
+return divi;
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 100 "prj.l"
+#line 29 "prj.l"
 return equal; 
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 101 "prj.l"
+#line 30 "prj.l"
 return acolovr; 
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 102 "prj.l"
+#line 31 "prj.l"
 return acolfermt;
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 103 "prj.l"
+#line 32 "prj.l"
 return parovt;
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 104 "prj.l"
+#line 33 "prj.l"
 return parfrt;
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 105 "prj.l"
+#line 34 "prj.l"
 return cndtinst;
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 106 "prj.l"
+#line 35 "prj.l"
 return elseinst;
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 107 "prj.l"
+#line 36 "prj.l"
 return bigger_lex ;
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 108 "prj.l"
+#line 37 "prj.l"
 return biggereq_lex;
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 109 "prj.l"
+#line 38 "prj.l"
 return less_lex ;
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 110 "prj.l"
+#line 39 "prj.l"
 return lessreq_lex;
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 111 "prj.l"
+#line 40 "prj.l"
 return noeql_lex;
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 112 "prj.l"
+#line 41 "prj.l"
 return bocleinst;
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 113 "prj.l"
+#line 42 "prj.l"
 {  if (yyleng<=10) {inserer(yytext,"idf");
-                                return idf;  }
+                           yylval.str=strdup(yytext);    
+                            return idf;  }
              else printf("erreur lexical a la ligne %d\n ce identificateur est tres long",nb_ligne);
             };
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 117 "prj.l"
+#line 47 "prj.l"
 {return nbre;}; 
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 118 "prj.l"
+#line 48 "prj.l"
 {return nbrr; };
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 119 "prj.l"
+#line 49 "prj.l"
 
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 120 "prj.l"
+#line 50 "prj.l"
 
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 121 "prj.l"
+#line 51 "prj.l"
 {nb_ligne++;};
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 122 "prj.l"
+#line 52 "prj.l"
 {printf("erreur lexical dans la ligne %d \n dans l'entite %s",nb_ligne , yytext); return err;}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 123 "prj.l"
+#line 53 "prj.l"
 ECHO;
 	YY_BREAK
-#line 923 "lex.yy.c"
+#line 853 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1805,4 +1735,4 @@ int main()
 	return 0;
 	}
 #endif
-#line 123 "prj.l"
+#line 53 "prj.l"

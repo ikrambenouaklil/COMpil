@@ -70,18 +70,25 @@
 /* Line 189 of yacc.c  */
 #line 1 "prj.y"
 
-#include <stdio.h>
+#include "prj.tab.h"
+#include <string.h>
+#include <wchar.h>
 #include <stdbool.h>
-#include <cstdbool>
+#include <stdio.h>
+
 
 
 extern int yylex(void);
-void yyerror(const char *s);
+extern void yyerror(char*msg);
+int yywrap ();
+void inserertype(char entite[], char type[]);
  int nb_ligne = 1;
+ char sauvtype[20];
+
 
 
 /* Line 189 of yacc.c  */
-#line 85 "prj.tab.c"
+#line 92 "prj.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -125,7 +132,7 @@ void yyerror(const char *s);
      add = 272,
      minus = 273,
      mult = 274,
-     div = 275,
+     divi = 275,
      vg = 276,
      equal = 277,
      acolovr = 278,
@@ -150,17 +157,16 @@ typedef union YYSTYPE
 {
 
 /* Line 214 of yacc.c  */
-#line 11 "prj.y"
+#line 18 "prj.y"
 
 int      entier;
 float    reel;
-bool    boolean; 
 char*    str;
 
 
 
 /* Line 214 of yacc.c  */
-#line 164 "prj.tab.c"
+#line 170 "prj.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -172,7 +178,7 @@ char*    str;
 
 
 /* Line 264 of yacc.c  */
-#line 176 "prj.tab.c"
+#line 182 "prj.tab.c"
 
 #ifdef short
 # undef short
@@ -478,12 +484,12 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    23,    23,    25,    25,    26,    26,    27,    27,    28,
-      28,    29,    29,    30,    30,    31,    31,    32,    32,    32,
-      33,    33,    34,    34,    34,    35,    35,    36,    36,    36,
-      37,    37,    38,    38,    39,    39,    40,    40,    41,    41,
-      42,    42,    42,    42,    43,    44,    45,    45,    46,    46,
-      46,    46,    46,    47,    48,    49,    50
+       0,    29,    29,    31,    31,    32,    32,    33,    33,    34,
+      34,    35,    35,    37,    38,    40,    40,    42,    43,    44,
+      46,    46,    47,    47,    47,    48,    48,    49,    49,    49,
+      50,    50,    51,    51,    52,    52,    53,    53,    54,    54,
+      55,    55,    55,    55,    56,    57,    58,    58,    59,    59,
+      59,    59,    59,    60,    61,    62,    63
 };
 #endif
 
@@ -494,7 +500,7 @@ static const char *const yytname[] =
 {
   "$end", "error", "$undefined", "const_lex", "aff", "pvg", "idf", "nbrr",
   "nbre", "float_lex", "int_lex", "bool_lex", "false_lex", "true_lex",
-  "begin_lex", "end_lex", "err", "add", "minus", "mult", "div", "vg",
+  "begin_lex", "end_lex", "err", "add", "minus", "mult", "divi", "vg",
   "equal", "acolovr", "acolfermt", "parovt", "parfrt", "cndtinst",
   "elseinst", "bigger_lex", "biggereq_lex", "less_lex", "lessreq_lex",
   "noeql_lex", "bocleinst", "$accept", "S", "H", "C", "V", "INITV",
@@ -1451,14 +1457,49 @@ yyreduce:
         case 2:
 
 /* Line 1455 of yacc.c  */
-#line 23 "prj.y"
+#line 29 "prj.y"
     {printf("syntaxe correct"); YYACCEPT;;}
+    break;
+
+  case 13:
+
+/* Line 1455 of yacc.c  */
+#line 37 "prj.y"
+    {inserertype((yyvsp[(1) - (3)].str),sauvtype);;}
+    break;
+
+  case 14:
+
+/* Line 1455 of yacc.c  */
+#line 38 "prj.y"
+    {inserertype((yyvsp[(1) - (1)].str),sauvtype);;}
+    break;
+
+  case 17:
+
+/* Line 1455 of yacc.c  */
+#line 42 "prj.y"
+    {strcpy(sauvtype,(yyvsp[(1) - (1)].str));;}
+    break;
+
+  case 18:
+
+/* Line 1455 of yacc.c  */
+#line 43 "prj.y"
+    {strcpy(sauvtype,(yyvsp[(1) - (1)].str));;}
+    break;
+
+  case 19:
+
+/* Line 1455 of yacc.c  */
+#line 44 "prj.y"
+    {strcpy(sauvtype,(yyvsp[(1) - (1)].str));;}
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 1462 "prj.tab.c"
+#line 1503 "prj.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1670,13 +1711,13 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 55 "prj.y"
+#line 68 "prj.y"
 
 int main ()
 { int yyparse(); 
 int afficher();  }
-int yywrap () {}
- int yyerror(char*msg);{
+int yywrap () {};
+ void yyerror(char*msg) {
 printf("erreur syntaxique à la ligne %d\n",nb_ligne);
 }
 

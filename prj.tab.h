@@ -56,7 +56,7 @@
      add = 272,
      minus = 273,
      mult = 274,
-     div = 275,
+     divi = 275,
      vg = 276,
      equal = 277,
      acolovr = 278,
@@ -81,17 +81,16 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 11 "prj.y"
+#line 18 "prj.y"
 
 int      entier;
 float    reel;
-bool    boolean; 
 char*    str;
 
 
 
 /* Line 1676 of yacc.c  */
-#line 95 "prj.tab.h"
+#line 94 "prj.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

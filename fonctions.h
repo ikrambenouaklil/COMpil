@@ -1,3 +1,5 @@
+#include <string.h>
+
 //je vais commencer ma table de symbole
 typedef struct
 {
