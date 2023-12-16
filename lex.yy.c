@@ -842,7 +842,7 @@ YY_RULE_SETUP
 case 35:
 YY_RULE_SETUP
 #line 52 "prj.l"
-{printf("erreur lexical dans la ligne %d \n dans l'entite %s",nb_ligne , yytext); return err;}
+printf("erreur lexical dans la ligne %d \n dans l'entite %s",nb_ligne , yytext); return err;
 	YY_BREAK
 case 36:
 YY_RULE_SETUP

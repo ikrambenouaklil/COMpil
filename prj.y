@@ -2,11 +2,7 @@
 #include "prj.tab.h"
 #include <string.h>
 #include <wchar.h>
-#include <stdbool.h>
 #include <stdio.h>
-
-
-
 extern int yylex(void);
 extern void yyerror(char*msg);
 int yywrap ();

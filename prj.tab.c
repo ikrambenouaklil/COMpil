@@ -73,11 +73,7 @@
 #include "prj.tab.h"
 #include <string.h>
 #include <wchar.h>
-#include <stdbool.h>
 #include <stdio.h>
-
-
-
 extern int yylex(void);
 extern void yyerror(char*msg);
 int yywrap ();
@@ -88,7 +84,7 @@ void inserertype(char entite[], char type[]);
 
 
 /* Line 189 of yacc.c  */
-#line 92 "prj.tab.c"
+#line 88 "prj.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -157,7 +153,7 @@ typedef union YYSTYPE
 {
 
 /* Line 214 of yacc.c  */
-#line 18 "prj.y"
+#line 14 "prj.y"
 
 int      entier;
 float    reel;
@@ -166,7 +162,7 @@ char*    str;
 
 
 /* Line 214 of yacc.c  */
-#line 170 "prj.tab.c"
+#line 166 "prj.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -178,7 +174,7 @@ char*    str;
 
 
 /* Line 264 of yacc.c  */
-#line 182 "prj.tab.c"
+#line 178 "prj.tab.c"
 
 #ifdef short
 # undef short
@@ -484,12 +480,12 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    29,    29,    31,    31,    32,    32,    33,    33,    34,
-      34,    35,    35,    37,    38,    40,    40,    42,    43,    44,
-      46,    46,    47,    47,    47,    48,    48,    49,    49,    49,
-      50,    50,    51,    51,    52,    52,    53,    53,    54,    54,
-      55,    55,    55,    55,    56,    57,    58,    58,    59,    59,
-      59,    59,    59,    60,    61,    62,    63
+       0,    25,    25,    27,    27,    28,    28,    29,    29,    30,
+      30,    31,    31,    33,    34,    36,    36,    38,    39,    40,
+      42,    42,    43,    43,    43,    44,    44,    45,    45,    45,
+      46,    46,    47,    47,    48,    48,    49,    49,    50,    50,
+      51,    51,    51,    51,    52,    53,    54,    54,    55,    55,
+      55,    55,    55,    56,    57,    58,    59
 };
 #endif
 
@@ -1457,49 +1453,49 @@ yyreduce:
         case 2:
 
 /* Line 1455 of yacc.c  */
-#line 29 "prj.y"
+#line 25 "prj.y"
     {printf("syntaxe correct");  YYACCEPT;;}
     break;
 
   case 13:
 
 /* Line 1455 of yacc.c  */
-#line 37 "prj.y"
+#line 33 "prj.y"
     {inserertype((yyvsp[(1) - (3)].str),sauvtype);;}
     break;
 
   case 14:
 
 /* Line 1455 of yacc.c  */
-#line 38 "prj.y"
+#line 34 "prj.y"
     {inserertype((yyvsp[(1) - (1)].str),sauvtype);;}
     break;
 
   case 17:
 
 /* Line 1455 of yacc.c  */
-#line 42 "prj.y"
+#line 38 "prj.y"
     {strcpy(sauvtype,(yyvsp[(1) - (1)].str));;}
     break;
 
   case 18:
 
 /* Line 1455 of yacc.c  */
-#line 43 "prj.y"
+#line 39 "prj.y"
     {strcpy(sauvtype,(yyvsp[(1) - (1)].str));;}
     break;
 
   case 19:
 
 /* Line 1455 of yacc.c  */
-#line 44 "prj.y"
+#line 40 "prj.y"
     {strcpy(sauvtype,(yyvsp[(1) - (1)].str));;}
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 1503 "prj.tab.c"
+#line 1499 "prj.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1711,7 +1707,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 68 "prj.y"
+#line 64 "prj.y"
 
 int main ()
 { int yyparse(); 
