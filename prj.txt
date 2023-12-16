@@ -1,0 +1,2 @@
+CONST  INT x1=4;
+INT x2=6;
