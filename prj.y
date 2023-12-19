@@ -82,15 +82,9 @@ OPTE: idf OPRAT NC ;
 
 %%
 int main ()
-{
-int yyparse();
-void afficher();  }
-
-
-
-
-void yyerror(char *msg) {
-    printf("Erreur syntaxique a la ligne %d : %s\n", nb_ligne,msg);
-
+{ int yyparse(); 
+int afficher();  }
+int yywrap () {};
+ void yyerror(char*msg) {
+printf("erreur syntaxique à la ligne %d\n",nb_ligne);
 }
-int yywrap () { return 1; };

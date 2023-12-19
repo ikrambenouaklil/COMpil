@@ -5,6 +5,88 @@ extern  int nb_ligne =1;
 extern YYSTYPE yylval;
 #include "fonctions.h"
 #include <stdio.h>
+typedef struct
+{
+char NomEntite[20];
+char CodeEntite[20];
+char TypeEntite[20];
+} TypeTS;
+
+//initiation d'un tab qui contient les elements de ma table
+
+TypeTS ts[100];
+//compteur global pour ma table
+int CpTabSym=0;
+
+//definir une fonction de recherche 
+int recherche(char entite[])
+{
+int i=0;
+while(i<CpTabSym)
+{
+if (strcmp(entite,ts[i].NomEntite)==0) 
+{
+return i ; 
+i++;}
+}
+
+return -1;
+}
+
+//definir une fonction d'insertion
+
+void inserer(char entite[], char code[])
+{  
+if ( recherche(entite)==-1)
+{
+strcpy(ts[CpTabSym].NomEntite,entite);
+strcpy(ts[CpTabSym].CodeEntite,code);
+CpTabSym++;
+}
+}
+
+
+
+//definir la fonction afficher
+
+void afficher ()
+{
+printf("\n/***************Table des symboles ******************/\n");
+printf("________________________\n");
+printf("\t| NomEntite | CodeEntite |TypeEntite \n");
+printf("________________________\n");
+int i=0;
+while(i<CpTabSym)
+{
+printf("\t|%10s |%12s |%12s \n",ts[i].NomEntite,ts[i].CodeEntite,ts[i].TypeEntite);
+i++;
+}
+}
+
+//fonction pour inserer le type
+
+void inserertype(char entite[], char type[])
+{
+int pos;
+ pos=recherche(entite);
+if (pos!=-1)
+strcpy(ts[pos].TypeEntite,type);
+
+}
+//6- definir une focntion qui detecte la double declaration
+
+int doubledeclaration(char entite[])
+{
+
+int pos;
+ pos=recherche(entite);
+
+if (strcmp (ts[pos].TypeEntite,"")==0) return 0;
+else return -1;
+
+}
+
+
 %}
 idf_lex [A-Z]"_"?[a-zA-Z0-9]*
 nbre_lex "-"?[0-9]+
@@ -49,6 +131,4 @@ For return bocleinst;
 [  \t]
 comment
 [\n]  {nb_ligne++;};
-.   {printf("erreur lexical dans la ligne %d \n",nb_ligne );}
-
-
+.   {printf("erreur lexical dans la ligne %d \n dans l'entite %s",nb_ligne , yytext); return err;}

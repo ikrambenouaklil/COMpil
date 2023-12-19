@@ -1700,6 +1700,7 @@ yyreturn:
 #line 83 "prj.y"
 
 int main ()
+<<<<<<< HEAD
 {
 int yyparse();
 void afficher();  }
@@ -1712,4 +1713,12 @@ void yyerror(char *msg) {
 
 }
 int yywrap () { return 1; };
+=======
+{ int yyparse(); 
+int afficher();  }
+int yywrap () {};
+ void yyerror(char*msg) {
+printf("erreur syntaxique à la ligne %d\n",nb_ligne);
+}
+>>>>>>> parent of a39d651 (d)
 
