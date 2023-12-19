@@ -423,12 +423,12 @@ char *yytext;
 #line 1 "prj.l"
 #define INITIAL 0
 #line 2 "prj.l"
-#include "prj.tab.h" 
+#include "prj.tab.h"
 #include <stdbool.h>
-extern  int nb_ligne ;
+extern  int nb_ligne =1;
 extern YYSTYPE yylval;
 #include "fonctions.h"
-
+#include <stdio.h>
 #line 433 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
@@ -678,7 +678,7 @@ YY_RULE_SETUP
 case 3:
 YY_RULE_SETUP
 #line 16 "prj.l"
-{return pvg;} 
+{return pvg;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
@@ -703,12 +703,12 @@ YY_RULE_SETUP
 case 8:
 YY_RULE_SETUP
 #line 21 "prj.l"
-{return false_lex;}; 
+{return false_lex;};
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 22 "prj.l"
-{return true_lex;}; 
+{return true_lex;};
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
@@ -743,12 +743,12 @@ return divi;
 case 16:
 YY_RULE_SETUP
 #line 29 "prj.l"
-return equal; 
+return equal;
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
 #line 30 "prj.l"
-return acolovr; 
+return acolovr;
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
@@ -809,7 +809,7 @@ case 29:
 YY_RULE_SETUP
 #line 42 "prj.l"
 {  if (yyleng<=10) {inserer(yytext,"idf");
-                           yylval.str=strdup(yytext);    
+                           yylval.str=strdup(yytext);
                             return idf;  }
              else printf("erreur lexical a la ligne %d\n ce identificateur est tres long",nb_ligne);
             };
@@ -817,7 +817,7 @@ YY_RULE_SETUP
 case 30:
 YY_RULE_SETUP
 #line 47 "prj.l"
-{return nbre;}; 
+{return nbre;};
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
@@ -842,11 +842,11 @@ YY_RULE_SETUP
 case 35:
 YY_RULE_SETUP
 #line 52 "prj.l"
-{printf("erreur lexical dans la ligne %d \n dans l'entite %s",nb_ligne , yytext); return err;}
+{printf("erreur lexical dans la ligne %d \n",nb_ligne );}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 53 "prj.l"
+#line 55 "prj.l"
 ECHO;
 	YY_BREAK
 #line 853 "lex.yy.c"
@@ -1735,4 +1735,4 @@ int main()
 	return 0;
 	}
 #endif
-#line 53 "prj.l"
+#line 55 "prj.l"

@@ -81,7 +81,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 14 "prj.y"
+#line 18 "prj.y"
 
 int      entier;
 float    reel;

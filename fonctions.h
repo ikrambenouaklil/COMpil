@@ -22,8 +22,10 @@ int recherche(char entite[])
 int i=0;
 while(i<CpTabSym)
 {
-if (strcmp(entite,ts[i].NomEntite)==0) return i;
-i++;
+if (strcmp(entite,ts[i].NomEntite)==0) 
+{
+return i ; 
+i++;}
 }
 
 return -1;
@@ -65,5 +67,17 @@ int pos;
  pos=recherche(entite);
 if (pos!=-1)
 strcpy(ts[pos].TypeEntite,type);
+
+}
+//6- definir une focntion qui detecte la double declaration
+
+int doubledeclaration(char entite[])
+{
+
+int pos;
+ pos=recherche(entite);
+
+if (strcmp (ts[pos].TypeEntite,"")==0) return 0;
+else return -1;
 
 }
