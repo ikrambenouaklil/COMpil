@@ -3,7 +3,6 @@
 #include <stdbool.h>
 extern  int nb_ligne =1;
 extern YYSTYPE yylval;
-#include "fonctions.h"
 #include <stdio.h>
 typedef struct
 {

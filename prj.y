@@ -8,10 +8,9 @@ int nb_ligne = 1;
 
 int yylex(); // Déclaration de la fonction yylex
 void yyerror(char *msg); // Déclaration de la fonction d'erreur
+ 
  // Fonction de fin de fichier
-
 void inserertype(char entite[], char type[]);
- int nb_ligne = 1;
  char sauvtype[20];
 
 %}
